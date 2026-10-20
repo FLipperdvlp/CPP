@@ -9,9 +9,10 @@ private:
     string Surname;
     double Age;
     unsigned long HashPassword;
+    bool IsLogedIn;
 public:
-    User(const int userId, const string& name, const string& surname, const double age, const unsigned long hashpassword) : 
-        UserId(userId), Name(name), Surname(surname), Age(age), HashPassword(hashpassword) {}
+    User(const int userId, const string& name, const string& surname, const double age, const unsigned long hashpassword, bool isLogedIn) : 
+        UserId(userId), Name(name), Surname(surname), Age(age), HashPassword(hashpassword), IsLogedIn(isLogedIn) {}
 
     int GetId() const{
         return UserId;
@@ -23,6 +24,10 @@ public:
 
     string GetSurname() const {
         return Surname;
+    }
+
+    bool GetBool() const {
+        return IsLogedIn;
     }
 
     double GetAge() const {
