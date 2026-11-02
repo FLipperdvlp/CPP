@@ -1,24 +1,34 @@
+#ifndef USER_H
+#define USER_H
+
 #include <iostream>
 #include <string>
+#include <cstddef>
+
 using namespace std;
 
-class User{
+class User {
 private:
     int UserId;
     string Name;
     string Surname;
     double Age;
-    unsigned long HashPassword;
+    size_t HashPassword;
     bool IsLogedIn;
-public:
-    User(const int userId, const string& name, const string& surname, const double age, const unsigned long hashpassword, bool isLogedIn) : 
-        UserId(userId), Name(name), Surname(surname), Age(age), HashPassword(hashpassword), IsLogedIn(isLogedIn) {}
 
-    int GetId() const{
+public:
+    User(const int userId, const string& name,
+         const string& surname, const double age,
+         size_t hashpassword, bool isLogedIn)
+        : UserId(userId), Name(name), Surname(surname),
+          Age(age), HashPassword(hashpassword),
+          IsLogedIn(isLogedIn) {}
+
+    int GetId() const {
         return UserId;
     }
 
-    string GetName() const{
+    string GetName() const {
         return Name;
     }
 
@@ -34,15 +44,33 @@ public:
         return Age;
     }
 
-    void SetName(const string& name){
+    size_t GetPasswordHash() const {
+        return HashPassword;
+    }
+
+    void SetName(const string& name) {
         Name = name;
     }
 
-    void SetSurname(const string& surname){
+    void SetSurname(const string& surname) {
         Surname = surname;
     }
 
-    void SetAge(const double age){
+    void SetAge(const double age) {
         Age = age;
     }
+
+    void SetLoggedIn(bool status) {
+        IsLogedIn = status;
+    }
+
+    void Display() const {
+        cout << "ID: " << UserId << endl;
+        cout << "Name: " << Name << endl;
+        cout << "Surname: " << Surname << endl;
+        cout << "Age: " << Age << endl;
+        cout << "Status: " << (IsLogedIn ? "Online" : "Offline") << endl;
+    }
 };
+
+#endif

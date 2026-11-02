@@ -8,10 +8,10 @@ private:
     string Name;
     string Surname;
     double Age;
-    unsigned long HashPassword;
+    size_t HashPassword;
     bool IsLogedIn;
 public:
-    User(const int userId, const string& name, const string& surname, const double age, const unsigned long hashpassword, bool isLogedIn) : 
+    User(const int userId, const string& name, const string& surname, const double age, size_t hashpassword, bool isLogedIn) : 
         UserId(userId), Name(name), Surname(surname), Age(age), HashPassword(hashpassword), IsLogedIn(isLogedIn) {}
 
     int GetId() const{
@@ -44,5 +44,12 @@ public:
 
     void SetAge(const double age){
         Age = age;
+    }
+
+    void Display() const{
+        cout << "ID: " << UserId << endl;
+        cout << "Name: " << Name << endl;
+        cout << "Surname: " << Surname << endl;
+        cout << "Password Hash: " << HashPassword << endl;
     }
 };
