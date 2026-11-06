@@ -4,6 +4,8 @@ using namespace std;
 int main(){
     int choice;
 
+        cout << "C++ version: " << __cplusplus;
+
     while(true){
         cout << "Options: " << endl;
         cout << "1 - Manipulatory strumieni" << endl;
